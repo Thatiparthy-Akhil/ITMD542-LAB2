@@ -1,0 +1,18 @@
+//- contacts_edit.pug
+
+extends contact
+
+block content
+  h1 Edit Contact
+  form(method='POST' action=`/contacts/${contact.id}`)
+    label(for='firstName') First Name:
+    input(type='text' name='firstName' value=contact.firstName required)
+    label(for='lastName') Last Name:
+    input(type='text' name='lastName' value=contact.lastName required)
+    label(for='emailAddress') Email Address:
+    input(type='email' name='emailAddress' value=contact.emailAddress)
+    label(for='notes') Notes:
+    textarea(name='notes')= contact.notes
+    button(type='submit') Save Changes
+    | 
+    a(href='/contacts') Cancel
